@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardMaxElevation="20dp"
     android:layout_margin="3dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    app:cardBackgroundColor="#fff"
+
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    >
 
     <LinearLayout
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
         android:id="@+id/lyt_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,12 +22,12 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="@dimen/spacing_large"
-            android:layout_marginRight="@dimen/spacing_large"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="@dimen/spacing_middle"
-            android:src="@drawable/photo_male_8" />
+            android:src="@drawable/photo_male_8"
+            android:layout_marginEnd="@dimen/spacing_large" />
 
         <View
             android:layout_width="@dimen/spacing_medium"
@@ -41,7 +46,6 @@
                 android:text="People Name"
                 android:textSize="20sp"
                 android:layout_gravity="center_vertical"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="@color/grey_1000" />
 
 

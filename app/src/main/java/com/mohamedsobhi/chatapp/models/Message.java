@@ -1,23 +1,32 @@
 package com.mohamedsobhi.chatapp.models;
 
+import com.google.firebase.firestore.Exclude;
+
+import java.util.Date;
+
 public class Message {
 
+    @Exclude
     String messageId;
     String sender;
     String receiver;
     String message;
+    Date timeStamp;
 
-    public Message(String messageId, String sender, String receiver, String message) {
-        this.messageId = messageId;
-        this.sender = sender;
-        this.receiver = receiver;
-        this.message = message;
+    public Date getTimeStamp() {
+        return timeStamp;
     }
 
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    @Exclude
     public String getMessageId() {
         return messageId;
     }
 
+    @Exclude
     public void setMessageId(String messageId) {
         this.messageId = messageId;
     }

@@ -111,8 +111,8 @@
                         android:background="@android:color/transparent"
                         android:hint="Email"
                         android:minHeight="@dimen/spacing_xmlarge"
-                        android:paddingLeft="@dimen/spacing_large"
-                        android:paddingRight="@dimen/spacing_large" />
+                        android:paddingStart="@dimen/spacing_large"
+                        android:paddingEnd="@dimen/spacing_large" />
 
                     <View
                         android:layout_width="match_parent"
@@ -128,8 +128,8 @@
                         android:background="@android:color/transparent"
                         android:hint="Username"
                         android:minHeight="@dimen/spacing_xmlarge"
-                        android:paddingLeft="@dimen/spacing_large"
-                        android:paddingRight="@dimen/spacing_large" />
+                        android:paddingStart="@dimen/spacing_large"
+                        android:paddingEnd="@dimen/spacing_large" />
 
                     <View
                         android:layout_width="match_parent"
@@ -140,6 +140,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/password_textInput"
+                        android:hint="Password"
+                        android:textColorHint="@color/grey_700"
                         app:passwordToggleEnabled="true">
 
                         <EditText
@@ -149,10 +151,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/spacing_xxlarge"
                             android:background="@android:color/transparent"
-                            android:hint="Password"
                             android:minHeight="@dimen/spacing_xmlarge"
-                            android:paddingLeft="@dimen/spacing_large"
-                            android:paddingRight="@dimen/spacing_large" />
+                            android:paddingStart="@dimen/spacing_large"
+                            android:paddingEnd="@dimen/spacing_large" />
 
 
                     </com.google.android.material.textfield.TextInputLayout>

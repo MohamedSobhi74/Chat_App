@@ -1,7 +1,6 @@
-package com.mohamedsobhi.chatapp;
+package com.mohamedsobhi.chatapp.ui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,6 +23,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.mohamedsobhi.chatapp.R;
+import com.mohamedsobhi.chatapp.SaveSetting;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -119,7 +120,7 @@ public class SignupActivity extends AppCompatActivity {
 
                                                 Toast.makeText(SignupActivity.this, "SignUp Successfully", Toast.LENGTH_SHORT).show();
 
-                                                Intent intent =new Intent(SignupActivity.this,MainActivity.class);
+                                                Intent intent =new Intent(SignupActivity.this, MainActivity.class);
                                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                                 startActivity(intent);
                                                 finish();

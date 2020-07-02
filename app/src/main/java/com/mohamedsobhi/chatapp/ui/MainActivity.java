@@ -1,4 +1,4 @@
-package com.mohamedsobhi.chatapp;
+package com.mohamedsobhi.chatapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
+import com.mohamedsobhi.chatapp.R;
+import com.mohamedsobhi.chatapp.SaveSetting;
 import com.mohamedsobhi.chatapp.adaptors.SectionsPagerAdapter;
 
 import butterknife.BindView;
@@ -33,50 +35,41 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.main_content)
     ConstraintLayout mainContent;
 
-    private ViewPager view_pager;
-    private TabLayout tab_layout;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initToolbar();
+        initComponent();
+
         saveSetting = new SaveSetting(MainActivity.this);
         userId = saveSetting.loadData("UserId");
         Toast.makeText(this, saveSetting.loadData("UserId"), Toast.LENGTH_SHORT).show();
 
 
-        String a = "LetterA";
-        String b = "ALetterB";
-        int compare = a.compareTo(b);
-        if (compare < 0) {
-            System.out.println(a + " is before " + b);
-        } else if (compare > 0) {
-            System.out.println(b + " is before " + a);
-        } else {
-            System.out.println(b + " is same as " + a);
-        }
-        initToolbar();
-        initComponent();
+
 
     }
 
     private void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Chat App");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initComponent() {
-        setupViewPager(view_pager);
+        setupViewPager(viewPager);
 
-        tab_layout.setupWithViewPager(view_pager);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     private void setupViewPager(ViewPager viewPager) {
+
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ChatsFragment(), "chats");
         adapter.addFragment(new UsersFragment(), "users");
         viewPager.setAdapter(adapter);
     }

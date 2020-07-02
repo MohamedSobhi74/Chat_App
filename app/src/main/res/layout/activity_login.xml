@@ -71,6 +71,8 @@
             android:id="@+id/email_TextInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textColorHint="#333"
             >
 
             <EditText
@@ -83,8 +85,8 @@
                 android:layout_marginTop="10dp"
                 android:singleLine="true"
                 android:maxLength="50"
-                android:hint="Email"
-                android:textColorHint="#333"/>
+                android:inputType="textEmailAddress"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,6 +94,8 @@
             android:id="@+id/password_TextInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="password"
+            android:textColorHint="#333"
             app:passwordToggleEnabled="true"
             >
 
@@ -106,8 +110,7 @@
                 android:layout_marginTop="10dp"
                 android:singleLine="true"
                 android:maxLength="50"
-                android:hint="password"
-                android:textColorHint="#333"/>
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 

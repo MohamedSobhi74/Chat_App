@@ -9,13 +9,11 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#0192CC"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/cyan_800"
         app:contentInsetStartWithNavigation="0dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:subtitle="Traveling today. BBM me."
-        app:subtitleTextAppearance="@style/TextAppearance.AppCompat.Small"
-        app:subtitleTextColor="@color/cyan_800"
+        app:subtitleTextColor="@color/grey_300"
         app:title="Jeff"
         app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium"
         app:titleTextColor="@android:color/white" />
@@ -65,11 +63,19 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:autofillHints="Write a message"
                 android:hint="Write a message"
-                android:imeOptions="actionSearch"
-                android:padding="@dimen/spacing_middle" />
+                android:textColor="#000"
+                android:textColorHint="@color/cyan_800"
+                android:padding="@dimen/spacing_middle"
+                android:inputType="textShortMessage" />
 
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/cyan_600"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"/>
             <ImageView
                 android:id="@+id/btn_send"
                 android:layout_width="@dimen/spacing_xxlarge"

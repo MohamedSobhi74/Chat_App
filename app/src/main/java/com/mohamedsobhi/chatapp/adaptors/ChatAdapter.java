@@ -4,26 +4,36 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.mohamedsobhi.chatapp.R;
 import com.mohamedsobhi.chatapp.models.Message;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ItemViewHolder> {
 
     private final int CHAT_ME = 100;
     private final int CHAT_YOU = 200;
 
-    private List<Message> items = new ArrayList<>();
+
+    private List<Message> messageList;
 
     private Context ctx;
+
+    public ChatAdapter(Context ctx, List<Message> items) {
+        this.messageList = items;
+        this.ctx = ctx;
+    }
+
     private OnItemClickListener mOnItemClickListener;
 
     public interface OnItemClickListener {
@@ -35,27 +45,12 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ChatAdapter(Context context) {
-        ctx = context;
-    }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView text_content;
-        public TextView text_time;
-        public View lyt_parent;
 
-        public ItemViewHolder(View v) {
-            super(v);
-            text_content = v.findViewById(R.id.text_content);
-            text_time = v.findViewById(R.id.text_time);
-            lyt_parent = v.findViewById(R.id.lyt_parent);
-        }
-    }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        RecyclerView.ViewHolder vh;
+    public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        ItemViewHolder vh;
         if (viewType == CHAT_ME) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chat_me, parent, false);
             vh = new ItemViewHolder(v);
@@ -66,42 +61,48 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        if (holder instanceof ItemViewHolder) {
-            final Message m = items.get(position);
-            ItemViewHolder vItem = (ItemViewHolder) holder;
-            vItem.text_content.setText(m.getMessage());
-            //vItem.text_time.setText(m.getDate());
-            vItem.lyt_parent.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (mOnItemClickListener != null) {
-                        mOnItemClickListener.onItemClick(view, m, position);
-                    }
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+
+        final Message m = messageList.get(position);
+        holder.textContent.setText(m.getMessage());
+        //vItem.text_time.setText(m.getDate());
+        holder.lytParent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemClick(view, m, position);
                 }
-            });
-        }
+            }
+        });
+
     }
+
 
     // Return the size of your data set (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return items.size();
+        return messageList.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return this.items.get(position).getSender() .equals( FirebaseAuth.getInstance().getUid() )? CHAT_ME : CHAT_YOU;
+        return this.messageList.get(position).getSender().equals(FirebaseAuth.getInstance().getUid()) ? CHAT_ME : CHAT_YOU;
     }
 
-    public void insertItem(Message item) {
-        this.items.add(item);
-        notifyItemInserted(getItemCount());
+    public class ItemViewHolder extends RecyclerView.ViewHolder {
+        // each data item is just a string in this case
+
+        @BindView(R.id.text_time)
+        TextView textTime;
+        @BindView(R.id.text_content)
+        TextView textContent;
+        @BindView(R.id.lyt_parent)
+        LinearLayout lytParent;
+        public ItemViewHolder(View v) {
+            super(v);
+            ButterKnife.bind(this, v);
+        }
     }
 
-    public void setItems(List<Message> items) {
-        this.items = items;
-    }
 }

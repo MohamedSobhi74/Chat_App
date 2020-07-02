@@ -4,20 +4,19 @@
     android:id="@+id/lyt_parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="end|right"
+    android:gravity="end"
     android:orientation="vertical"
     android:paddingBottom="@dimen/spacing_xsmall"
-    android:paddingLeft="@dimen/spacing_middle"
-    android:paddingRight="@dimen/spacing_middle"
+    android:paddingStart="@dimen/spacing_middle"
+    android:paddingEnd="@dimen/spacing_middle"
     android:paddingTop="@dimen/spacing_xsmall">
 
     <TextView
         android:id="@+id/text_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/spacing_small"
-        android:paddingRight="@dimen/spacing_small"
-        android:text="02:30"
+        android:paddingStart="@dimen/spacing_small"
+        android:paddingEnd="@dimen/spacing_small"
         android:textColor="@color/grey_800"
         android:textSize="10sp" />
 
@@ -35,8 +34,8 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:paddingBottom="@dimen/spacing_medium"
-            android:paddingLeft="@dimen/spacing_xmedium"
-            android:paddingRight="@dimen/spacing_xmedium"
+            android:paddingStart="@dimen/spacing_xmedium"
+            android:paddingEnd="@dimen/spacing_xmedium"
             android:paddingTop="@dimen/spacing_medium">
 
 

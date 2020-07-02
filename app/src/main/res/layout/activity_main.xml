@@ -51,19 +51,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-<!--
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end|right"
-        android:layout_margin="@dimen/spacing_smlarge"
-        android:clickable="true"
-        android:tint="@android:color/white"
-        app:backgroundTint="@color/orange_500"
-        app:fabSize="normal"
-        app:rippleColor="@android:color/white"
-        app:srcCompat="@drawable/ic_wrap_text" />
--->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
