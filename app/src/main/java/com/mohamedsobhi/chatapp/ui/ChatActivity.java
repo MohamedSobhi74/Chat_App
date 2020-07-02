@@ -183,6 +183,7 @@ public class ChatActivity extends AppCompatActivity {
                 }
 
                 messageList.clear();
+                textContent.setText("");
                 for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
 
 
@@ -229,10 +230,14 @@ public class ChatActivity extends AppCompatActivity {
                 if (!task.isSuccessful()){
 
                     Toast.makeText(ChatActivity.this, "failed to send message", Toast.LENGTH_SHORT).show();
+                }else {
+
+
                 }
 
             }
         });
+
 
 
     }
