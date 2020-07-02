@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/cyan_800"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/cyan_800"
+            app:tabIndicatorHeight="3dp"
+            app:tabMode="fixed"
+            app:tabTextColor="@color/grey_900"
+            app:tabSelectedTextColor="@color/cyan_800"
+             />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/grey_100"
+        app:layout_constraintTop_toBottomOf="@+id/appbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+<!--
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end|right"
+        android:layout_margin="@dimen/spacing_smlarge"
+        android:clickable="true"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/orange_500"
+        app:fabSize="normal"
+        app:rippleColor="@android:color/white"
+        app:srcCompat="@drawable/ic_wrap_text" />
+-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
