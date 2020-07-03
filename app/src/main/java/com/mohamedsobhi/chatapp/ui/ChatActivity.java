@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -81,7 +81,6 @@ public class ChatActivity extends AppCompatActivity {
         user = (User) getIntent().getExtras().getSerializable("userData");
         myId = FirebaseAuth.getInstance().getUid();
         userId = user.getUserId();
-        Log.e("iddd",userId);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
         chatId = getChatId(myId,userId);
@@ -111,9 +110,8 @@ public class ChatActivity extends AppCompatActivity {
                 for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
 
                     if (doc.getId().equals(chatId)){
-                        //getChatData(chatId);
                         isChatExist = true;
-                        Log.e("chatIdsnap",doc.getId());
+
                     }else {
 
                         isChatExist = false;
@@ -134,7 +132,6 @@ public class ChatActivity extends AppCompatActivity {
             id = userId + myId;
 
         }
-        Log.e("chatId",id);
         return id;
     }
 
@@ -186,10 +183,7 @@ public class ChatActivity extends AppCompatActivity {
                 textContent.setText("");
                 for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
 
-
                     Message message = doc.toObject(Message.class);
-
-                    Log.e("message", (String) message.getMessage());
 
                     message.setMessageId(doc.getId());
 
@@ -285,8 +279,6 @@ public class ChatActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();
-        } else {
-            Toast.makeText(getApplicationContext(), item.getTitle() + " clicked", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

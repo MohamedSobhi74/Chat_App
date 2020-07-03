@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         saveSetting = new SaveSetting(MainActivity.this);
         userId = saveSetting.loadData("UserId");
-        Toast.makeText(this, saveSetting.loadData("UserId"), Toast.LENGTH_SHORT).show();
 
 
 
@@ -85,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();
-        } else {
-            Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
